@@ -1,3 +1,4 @@
+
 \documentclass[a4paper,12pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -48,18 +49,20 @@ con $U_n$ un rectángulo cerrado de $\mathbb{R}^n$, tal que
 \end{definicion}
 \textbf{Demostración}\\
 Sea un $A \subseteq \mathbb{R}^n$ un conjunto de medida 0.Supongamos que A poseé un punto interior $x_0$ por definición
-existe un cierto $\epsilon > 0$ tal que $B(x_0,\epsilon) \subseteq A$ ello implica que $B(x_0,\epsilon)$ consta de todos
+existe un cierto $\epsilon > 0$ tal que $B(x_0,\epsilon) \subseteq A$, ello implica que $B(x_0,\epsilon)$ consta de todos
 los puntos $x$ tal que $\Vert x - x_0\Vert < \epsilon$. Ahora dado que A tiene medida 0 existe un recubrimiento de
 rectángulos que satisface $A \subseteq  \bigcup_{n = 1}^{\infty} U_n$  tal que
 \[\sum_{i = 1}^{\infty} Vol(U_i) < \varepsilon .\]
 Para todo $\varepsilon > 0$.Lo que a su vez implica que $B(x_0,\epsilon) \subseteq A \subseteq  \bigcup_{n = 1}^{\infty} U_n$. Puesto que la
 desigualdad
 \[\sum_{i = 1}^{\infty} Vol(U_i) < \varepsilon .\]
-se satisface para cualquier $\varepsilon > 0$ se cumple que para cualquiera de los subrectángulos $U_k$ con $k \in \mathbb{N}$,
-se satisface que $Vol(U_k) <  \sum_{i = 1}^{\infty} Vol(U_i) < \varepsilon $. Si tomamos $\epsilon > \varepsilon $ se hace
+se satisface para cualquier $\varepsilon > 0$. Por lo tanto se tiene que para cualquiera de los subrectángulos
+$U_k$ con $k \in \mathbb{N}$,
+se satisface que $Vol(U_k) <  \sum_{i = 1}^{\infty} Vol(U_i) < \varepsilon $. Si tomamos un punto $x_0 \in A$ con $\epsilon > \varepsilon $ se hace
 evidente que $B(x_0,\epsilon) \not \subset  \bigcup_{n = 1}^{\infty} U_n$ lo cual contradice el hecho de que
 $B(x_0,\epsilon) \subseteq A \subseteq  \bigcup_{n = 1}^{\infty} U_n$. Analogamente si tomamos
-$\epsilon \leq \varepsilon , \forall \varepsilon > 0$, se tiene necesariamente que $\epsilon = 0$ lo cual es una contradicción
+$\epsilon \leq \varepsilon , \forall \varepsilon > 0$ implica que $B(x_0,\epsilon) \subseteq U_k$ para algun $k \in \mathbb{N}$
+o $B(x_0,\epsilon) \subseteq  \bigcup_{n = 1}^{\infty} U_n$, se tiene entonces necesariamente que $\epsilon = 0$ lo cual es una contradicción
 puesto que hemos supuesto que $\epsilon > 0$. Por tanto podemos concluir que si A tiene medida cero entonces A no poseé
 puntos interiores.$\blacksquare$
 
@@ -92,7 +95,7 @@ Es decir el conjunto $\mathbb{Q} \subset \mathbb{R}$ es de medida cero.
 Ahora puesto que $\mathbb{Q}$, es de medida cero y se tiene que la cerradura $\overline{\mathbb{Q}}$ es precisamente
 $\mathbb{R}$, tomemos el conjunto
 \[\mathbb{Q}^n = \mathbb{Q} \times \mathbb{Q} \times \cdots  \times \mathbb{Q} \]
-formado al realizar el producto de $\mathbb{Q}$ con sigo mismo n veces. Entoces se hace evidente que
+formado al realizar el producto cartesiano de $\mathbb{Q}$ con sigo mismo n veces. Entoces se hace evidente que
 $\mathbb{Q}^n \subset \mathbb{R}^n$ es de medida cero, esto se sigue del hecho de que podemos verificar esto siguiendo los pasos
 anteriormente descritos,de que $\mathbb{Q}$ es de medida cero considerando unicamente rectángulos en $\mathbb{R}^n$.
 Con ello obtenemos que $\mathbb{Q}^n$ es de medida cero y su cerradura $\overline{\mathbb{Q}}^n$ es $\mathbb{R}^n$.$\blacksquare$
@@ -166,14 +169,43 @@ entonces}
 Supongamos que $f$ es Riemann-integrable en el intervalo $[a,b]$.Por definición ello implica que $\exists \mathfrak{R} \in \mathbb{R}$
 tal que $\forall \mathcal{P} $ partición de $[a,b]$ y $\forall \xi$ elección. Se cumple que $\forall \epsilon > 0, \exists \delta >0$
 tal que
-\[\mathcal{R}\]
+\[\vert \mathcal{R}(f,\mathcal{P},\xi) - \mathfrak{R} \vert < \varepsilon.\]
 
+Ahora supongamos que $f(x) = 0$ en casi todo el intervalo $I$ y existe un conjunto a lo más numerable de puntos $\hat{x}$
+que satisfacen $f(\hat{x}) \not = 0$. Es evidente entonces que para cualquier elección $\xi = \lbrace \xi_1, \xi_2, \ldots, \xi_n\rbrace$
+donde $\xi_i \in [x_i,x_{i+1}]$.
+Es decir $\xi_i$ pertenece al subintervalo $[x_i,x_{i+1}]$ de la partición
+\[\mathcal{P} = \lbrace a = x_1 < x_2 < \cdots < x_n = b\rbrace\]
+y se cumple que cuando menos $\exists \hat{\xi}_1 , \hat{\xi}_2 \in [x_i,x_{i+1}]$ tal que $f(\hat{\xi}_1) = 0$  y
+$f(\hat{\xi}_2) \not = 0$.
+Por tanto si consideramos la elección $\xi_{\mathcal{O} } = \lbrace \xi_i \in \xi_{\mathcal{O}} : f(\xi_i) = 0\rbrace$
+y la elección  $\xi_{\mathcal{Q}} = \lbrace \xi_i \in \xi_{\mathcal{Q}} : f(\xi_i) \not = 0\rbrace$, con $1 \leq i \leq n$.
+Si tomamos las sumas de Riemann relativas para las elecciones $\xi_{\mathcal{O}}$,  $\xi_{\mathcal{Q}}$ y la partición $\mathcal{P}$.
+Resulta entonces evidente que $\mathcal{R} (f,\mathcal{P},\xi_{\mathcal{O}}) = 0$, ahora si consideramos
+$\mathcal{R} (f,\mathcal{P},\xi_{\mathcal{Q}})$ se tiene que puesto que $f$ es R-integrable se satisface que
+\[\vert \mathcal{R} (f,\mathcal{P},\xi_{\mathcal{Q}}) - \mathfrak{R} \vert < \varepsilon\]
 
-
+Ahora sabemos que si hacemos $\Vert \mathcal{P} \Vert \rightarrow 0$, puesto que hemos supuesto que los puntos donde la
+función $f$ son  distintos de 0 son un conjunto a lo más numerable implica necesariamente que no importa cuan fina se la
+partición se tendra que la elección $\xi$ tendra necesariamente puntos para los cuales $f(\xi_i)$ sea 0. Por tanto se tiene
+que cuando menos
+\[0 \leq \vert \mathcal{R} (f,\mathcal{P},\xi_{\mathcal{Q}}) - \mathfrak{R} \vert < \varepsilon \]
+como podemos hacer $\varepsilon$ tan pequeño como queramos podemos concluir que puesto que $\mathfrak{R}$ existe y cumple
+que
+\[-\varepsilon - \mathcal{R} (f,\mathcal{P},\xi_{\mathcal{Q}}) <  \mathfrak{R}  < \varepsilon - {\mathcal{R} (f,\mathcal{P},\xi_{\mathcal{Q}})}_{(1)}\]
+Puesto que hemos supuesto que la desigualdad anterior se conserva para cualquier partición y elección que tomemos, puesto
+que $f$ es R-integrable. Y considerando la elección $\xi_{\mathcal{O}}$ de igual forma satisface la desigualdad podemos
+concluir que
+\[\int_{I} f(x) dx = 0\]
+Es decir si $\mathfrak{R}$ existe la desigualdad $(1)$ se cumple para cualquier suma de Riemann relativa $\mathcal{R} (f,\mathcal{P},\xi)$,
+podemos concluir entonces que necesariamente $\mathfrak{R} = 0._\blacksquare$
 \newpage
 \section{Ejercicio 4}
 \textit{Usando la definición de suma de Riemann con ayuda del criterio de Darboux, encuentra}
 \[\int_{[0,1] \times [0,1]} (x^2y+x)dxdy\]
+Sea $\mathsf{P}$ una partición del rectángulo $[0,1] \times [0,1]$, de tal modo que
+$\mathcal{P} = \lbrace \mathcal{P}_1, \mathcal{P}_2 \rbrace$, donde $\mathcal{P}_1$ y $\mathcal{P}_2$ son una partición
+del intervalo $[0,1]$
 
 \newpage
 \section{Ejercicio 5}
@@ -181,6 +213,16 @@ tal que
 de Fubini para calcular:}
 \[\int_{I} f(x,y,z) dxdydz\]
 
+
+La integral esta dada por
+
+\[\int_{E} f(x,y,z)dxdydz = \int_{0}^{1} \int_{-\pi/2}^{\pi/2} \int_{0}^{\pi} z\sin (x+y) dxdydz\]
+
+\[\int_{0}^{1} \int_{-\pi/2}^{\pi/2} \int_{0}^{\pi} z\sin (x+y) = \int_{0}^{1} \int_{-\pi/2}^{\pi/2} z \left[ \int_{0}^{\pi} \sin (x+y) dx \right] dydz \]
+
+\[ = \int_{0}^{1} \int_{-\pi/2}^{\pi/2} z \left[ -\cos (x+y) \vert_{y}^{y + \pi} \right] dydz = \int_{0}^{1} \int_{-\pi/2}^{\pi/2} z \left[ 2\cos (y)\right] dydz\]
+\[ = \int_{0}^{1} 2z\left[\int_{-\pi/2}^{\pi/2}  \cos (y) dy\right] dz =  \int_{0}^{1} 2z\left[\sin(y) \vert_{-\pi/2}^{\pi/2}\right] dz\]
+\[ = \int_{0}^{1} 4z dz = 4 \int_{0}^{1} z dz = 4 (\frac{z^2}{2}\vert_{0}^1) = 2 \]
 
 \newpage
 \section{Ejercicio 6}

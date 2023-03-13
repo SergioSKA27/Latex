@@ -275,4 +275,37 @@ De acuerdo a lo anteriormente mencionado la integral esta dada por
 para algún $m \geq 1$, entonces}
 \[\frac{\partial^2 f}{\partial x \partial y} = \frac{\partial^2 f}{\partial y \partial x}.\]
 
+
+\textbf{Demostración}\\
+De acuerdo al teorema fundamental del cálculo sabemos que si tenemos $\int f(x) dx  = F(x)$ donde $F(x)$ es una
+primitiva de la función $f$, que cumple $\frac{dF(x)}{dx} = f(x)$.
+Si consideramos una función $f :A \times B \subseteq \mathbb{R}^2 \rightarrow \mathbb{R}$, de tal forma que $f$ es integrable
+se tiene entonces que
+\[\iint_{A\times B} f(x,y) dx dy = \int_{B}\left[\int_{A} f(x,y) dx\right]  dy  = \int_{A}\left[\int_{B} f(x,y) dy\right] dx\]
+Consideremos primeramente la integral
+\[ \int_{B}\left[\int_{A} f(x,y) dx\right]  dy \]
+se tiene de acuerdo al  teorema fundamental del cálculo que existe una primitiva $F_0$ tal que
+\[\int_{A} f(x,y) dx = F_0 (x,y) \longrightarrow \frac{\partial F_0}{\partial x} = f(x,y)\]
+Ahora si consideramos la integral
+\[ \int_{B} F_0 (x,y)  dy \]
+se tiene que  existe una primitiva $F_1$ tal que
+\[\int_{B} F_0 (x,y) dy = F_1 (x,y) \longrightarrow \frac{\partial F_1}{\partial y} = F_0 (x,y)\]
+si derivamos ambos lados de la igualdad con respecto de $x$ llegamos a que
+\[\frac{\partial F_1}{\partial y} = F_0 (x,y)  \longrightarrow \frac{\partial^2 F_1}{\partial y \partial x} = \frac{\partial F_0}{\partial x} = f(x,y) \]
+Analogamente consideremos  la integral
+\[ \int_{A}\left[\int_{B} f(x,y) dy\right]  dx \]
+se tiene de acuerdo al  teorema fundamental del cálculo que existe una primitiva $F_0$ tal que
+\[\int_{B} f(x,y) dy = F_0 (x,y) \longrightarrow \frac{\partial F_0}{\partial y} = f(x,y)\]
+Ahora si consideramos la integral
+\[ \int_{A} F_0 (x,y)  dx \]
+se tiene que  existe una primitiva $F_1$ tal que
+\[\int_{A} F_0 (x,y) dx = F_1 (x,y) \longrightarrow \frac{\partial F_1}{\partial x} = F_0 (x,y)\]
+si derivamos ambos lados de la igualdad con respecto de $y$ llegamos a que
+\[\frac{\partial F_1}{\partial x} = F_0 (x,y)  \longrightarrow \frac{\partial^2 F_1}{\partial x \partial y} = \frac{\partial F_0}{\partial y} = f(x,y) \]
+Con ello queda demostrada la Proposición$._\blacksquare$
+
+
+
+
+
 \end{document}

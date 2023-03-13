@@ -13,7 +13,7 @@
 \newtheorem{observ}{Observación}[subsection]
 \newtheorem{prop}{Proposición}[subsection]
 \newtheorem{Corolario}{Corolario}[subsection]
-
+\DeclareUnicodeCharacter{2248}{^}
 
 \begin{document}
 
@@ -203,12 +203,39 @@ podemos concluir entonces que necesariamente $\mathfrak{R} = 0._\blacksquare$
 \section{Ejercicio 4}
 \textit{Usando la definición de suma de Riemann con ayuda del criterio de Darboux, encuentra}
 
-
 \[\int_{[0,1] \times [0,1]} (x^2y+x)dxdy\]
-Sea $\mathsf{P}$ una partición del rectángulo $[0,1] \times [0,1]$, de tal modo que
-$\mathcal{P} = \lbrace \mathcal{P}_1, \mathcal{P}_2 \rbrace$, donde $\mathcal{P}_1$ y $\mathcal{P}_2$ son una partición
-del intervalo $[0,1]$
 
+\begin{definicion}
+    La integral doble de una función de dos variables f, sobre el rectángulo R es
+    \[\iint_{R} f(x,y) = \lim_{m,n \rightarrow \infty} \sum_{i= 1}^{n} \sum_{j=1}^{m} f(x_{ij}^{*},y_{ij}^{*}) \varDelta A\]
+\end{definicion}
+
+Sea $\mathcal{P}$ una partición del rectángulo $[0,1] \times [0,1]$, de tal modo que
+$\mathcal{P} = \lbrace \mathcal{P}_1, \mathcal{P}_2 \rbrace$, donde $\mathcal{P}_1$ y $\mathcal{P}_2$ son una partición
+del intervalo $[0,1]$, de tal forma que $\mathcal{P}_1$ sea dividida en $m$ intervalos iguales y $\mathcal{P}_2$ se dividida
+en $n$ partes iguales.
+\begin{center}
+    \includegraphics[scale=0.5]{riemman.png}
+\end{center}
+
+Por tanto si consideramos las partición $\mathcal{P}_1$ y $\mathcal{P}_2$ divididos en 4 subintervalos es decir si
+consideramos $\mathcal{P}_1 = \lbrace 0 < 1/4 < 2/4 < 3/4 < 1 \rbrace$, de igual forma para $\mathcal{P}_2$ y considerando
+los puntos de muestra $(x_{ij}^{*},y_{ij}^{*})$ la esquina superior derecha de cada $R_{ij}$. Con ello tenemos que
+$Vol(R_{ij}) = \frac{1}{16}$, haciendo l suma de riemman considerando esta partición obtenemos que
+
+\[\sum_{i= 1}^{n} \sum_{j=1}^{m} f(x_{ij}^{*},y_{ij}^{*}) \varDelta A = \]
+\[ = f(\frac{1}{4},\frac{1}{4})*Vol(R_{ij}) + f(\frac{1}{2},\frac{1}{4})*Vol(R_{ij})+ f(\frac{3}{4},\frac{1}{4})*Vol(R_{ij})+\]
+\[f(1,\frac{1}{4})*Vol(R_{ij}) + f(\frac{1}{4},\frac{1}{2})*Vol(R_{ij})+ f(\frac{1}{2},\frac{1}{2})*Vol(R_{ij}) + f(\frac{3}{4},\frac{1}{2})*Vol(R_{ij})\]
+\[f(1,\frac{1}{2})*Vol(R_{ij}) + f(\frac{1}{4},\frac{3}{4})*Vol(R_{ij})+ f(\frac{1}{2},\frac{3}{4})*Vol(R_{ij}) + f(\frac{3}{4},\frac{3}{4})*Vol(R_{ij})\]
+\[f(1,\frac{3}{4})*Vol(R_{ij}) + f(\frac{1}{4},1)*Vol(R_{ij})+ f(\frac{1}{2},1)*Vol(R_{ij}) + f(\frac{3}{4},1)*Vol(R_{ij}) + f(1,1)*Vol(R_{ij}) \]
+\[≈ 0.666666667\]
+Tomando el limite cuando $\Vert \mathcal{P}_1 \Vert \rightarrow 0$  y $\Vert \mathcal{P}_2 \Vert \rightarrow 0$ llegaremos
+a que
+\[\lim_{m,n \rightarrow \infty} \sum_{i= 1}^{n} \sum_{j=1}^{m} f(x_{ij}^{*},y_{ij}^{*}) \varDelta A = \frac{2}{3}\].
+
+\begin{center}
+    \includegraphics[scale=0.5]{graph.png}
+\end{center}
 \newpage
 \section{Ejercicio 5}
 \textit{Sea $f(x,y,z) = z \sin(x+y)$ y considerando el intervalo $[0,\pi]\times[-\pi/2,\pi/2]\times[0,1]$. Usa el teorema

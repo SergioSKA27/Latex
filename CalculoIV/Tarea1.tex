@@ -202,6 +202,8 @@ podemos concluir entonces que necesariamente $\mathfrak{R} = 0._\blacksquare$
 \newpage
 \section{Ejercicio 4}
 \textit{Usando la definición de suma de Riemann con ayuda del criterio de Darboux, encuentra}
+
+
 \[\int_{[0,1] \times [0,1]} (x^2y+x)dxdy\]
 Sea $\mathsf{P}$ una partición del rectángulo $[0,1] \times [0,1]$, de tal modo que
 $\mathcal{P} = \lbrace \mathcal{P}_1, \mathcal{P}_2 \rbrace$, donde $\mathcal{P}_1$ y $\mathcal{P}_2$ son una partición
@@ -214,7 +216,23 @@ de Fubini para calcular:}
 \[\int_{I} f(x,y,z) dxdydz\]
 
 
-La integral esta dada por
+\begin{teoremas} {\textbf{Teorema de Fubini}}\\
+    Sea $A\subseteq \mathbb{R}^n$, $B\subseteq \mathbb{R}^m$ rectángulos cerrados y sea $f : A\times B\subseteq \mathbb{R}^{n+m} \rightarrow \mathbb{R}$
+    una función acotada e integrable. Entonces las siguientes integrales existen y son iguales
+    \[\int_{A\times B} f(x,y)dxdy = \int_{A}\left[ \int_{B} f(x,y)dy\right]dx = \int_{B}\left[ \int_{A} f(x,y)dx\right]dy\]
+
+\end{teoremas}
+
+
+\begin{Corolario}
+    Si $f : A \rightarrow \mathbb{R}$ es continua, con
+    \[S = [a_1,b_1] \times [a_2,b_2] \times \cdots \times [a_n,b_n]   \subseteq \mathbb{R}^n,\]
+    entonces
+    \[\int_{S} f = \int_{a_1}^{b_1} \int_{a_2}^{b_2} \cdots \int_{a_n}^{b_n} f(x_1,\ldots,x_n) dx_{n}dx_{n-1}\ldots dx_1\]
+\end{Corolario}
+
+
+De acuerdo a lo anteriormente mencionado la integral esta dada por
 
 \[\int_{E} f(x,y,z)dxdydz = \int_{0}^{1} \int_{-\pi/2}^{\pi/2} \int_{0}^{\pi} z\sin (x+y) dxdydz\]
 
